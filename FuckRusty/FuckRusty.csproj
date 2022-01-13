@@ -76,5 +76,27 @@
     <EmbeddedResource Include="assets\fucker.wav" />
     <EmbeddedResource Include="assets\I bet you eat soup with a fork.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="assets\aaaah.wav" />
+    <EmbeddedResource Include="assets\aaah.wav" />
+    <EmbeddedResource Include="assets\aah.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="assets\fuck out of here.wav" />
+    <EmbeddedResource Include="assets\fuck this bullshit.wav" />
+    <EmbeddedResource Include="assets\fucking asshole.wav" />
+    <EmbeddedResource Include="assets\get the fuck out of my way.wav" />
+    <EmbeddedResource Include="assets\go fuck yourself are you kidding me.wav" />
+    <EmbeddedResource Include="assets\holy fuck 1.wav" />
+    <EmbeddedResource Include="assets\holy fuck 2.wav" />
+    <EmbeddedResource Include="assets\holy fuck.wav" />
+    <EmbeddedResource Include="assets\holy shit.wav" />
+    <EmbeddedResource Include="assets\jezus fucking hell.wav" />
+    <EmbeddedResource Include="assets\shit 1.wav" />
+    <EmbeddedResource Include="assets\spaghetti sauce.wav" />
+    <EmbeddedResource Include="assets\titsville.wav" />
+    <EmbeddedResource Include="assets\you are just fucked.wav" />
+    <EmbeddedResource Include="assets\you ass.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -16,6 +16,7 @@ namespace FuckRusty
 		static Stream stream;
 		static Assembly assembly = Assembly.GetExecutingAssembly();
 		AudioSource audioPlayer;
+		System.Random random;
 
 		public static void LoadHitAudioFromStream(string path)
 		{
@@ -37,6 +38,24 @@ namespace FuckRusty
 			LoadHitAudioFromStream("FuckRusty.assets.okay that was bullshit.wav");
 			LoadHitAudioFromStream("FuckRusty.assets.shit.wav");
 			LoadHitAudioFromStream("FuckRusty.assets.what the fuck.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.aaaah.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.aaah.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.aah.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.fuck out of here.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.fuck this bullshit.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.fucking asshole.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.get the fuck out of my way.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.go fuck yourself are you kidding me.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.holy fuck 1.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.holy fuck 2.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.holy fuck.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.holy shit.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.jezus fucking hell.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.shit 1.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.spaghetti sauce.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.titsville.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.you are just fucked.wav");
+			LoadHitAudioFromStream("FuckRusty.assets.you ass.wav");
 			stream.Dispose();
 		}
 
@@ -48,12 +67,14 @@ namespace FuckRusty
 			UnityEngine.Object.DontDestroyOnLoad(audioHolder);
 			audioPlayer = audioHolder.GetComponent<AudioSource>();
 
+			random = new System.Random();
+
 			ModHooks.AfterTakeDamageHook += PlaySound;
 		}
 
 		private int PlaySound(int hazardType, int damageAmount)
 		{
-			audioPlayer.clip = hitClips[UnityEngine.Random.Range(0, hitClips.Count - 1)];
+			audioPlayer.clip = hitClips[random.Next(0, hitClips.Count)];
 			audioPlayer.Play();
 			return damageAmount;
 		}
