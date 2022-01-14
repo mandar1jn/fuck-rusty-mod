@@ -1,8 +1,14 @@
 {
-  "BANKER_GREET": "Hello fucer! Keen to do some banking?",
+  "BANKER_MEET": "What's with this sassy..lost child? Hm? No one around to pick them up?<page>...<page>I guess I'm stuck with you, then, fucker. And I was just about to pack and leave for the day, goddamnit.<page> I provide a banking service if you're interested.<page>Losing one's Geo is a terrible thing and it's so much more likely if you carry it about on yourself. I can smell failure all over you.<page>My vault is much more secure. In all my time as a banker, I've never lost a single Geo!<page>Maybe you'd considered opening an account?",
+  "BANKER_ACCT_DECLINE": "I understand. It's difficult for an simple thing like you to part with your shiny things.<page>I'll be here if you decide to use a braincell or two.",
   "BANKER_ACCT_NOTENOUGH": "Oh, hang on. It seems like you are poor. Once you've collected 100 Geo, come straight back and we'll get your account opened up.",
-  "CHARMSLUG_REPEAT": "It's rare enough that someone enters my store, but even rarer to meet one so idiotic!<page>Those ugly horns! That weak weapon. The air of dung! Ooooh. It's enough to make me puke.",
-  "CHARMSLUG_MEET_3B": "Mmm... What were we talking about? Oh yes, Charms! I'm not surprised an idiot like yourself isn't wearing any, actually.Charms are gorgeous, mystical, one-of-a-kind accessories with a spark of power woven into their cores. Just wearing one is enough to change your life! You'll do things you never thought possible!Take a look at some of the Charms I have for sale. You can take one home with you if you like! Maybe they are able to improve your looks even slightly.",
-  "CHARMSLUG_BLESSING_1": "My dear. A blessing for you. With your excessive patronage and those bad looks, you've more than earned it.",
-  "CORNIFER_REFUSE": "Not interested, then? Yes, quite dumb. Exploring without a map, finding your own way through unknown caverns... I can't wait for you to get lost",
+  "BANKER_REMEET": "Have you used your single braincell and decided to open an account? Losing Geo is a terrible thing.<page>You'll be much more confident out there in the big, dangerous world, knowing it's safe with me.",
+  "BANKER_ACCT_DECLINE_AGAIN": "Still not interested? You're far too hesitant. Fucking pussy.",
+  "BANKER_ACCT_OPEN": "There we go...that's the braincell I wanted you to use. I hope for your sake you keep it running.<page>Now let's do some banking.",
+  "BANKER_FAREWELL": "Goodbye then, and good riddance.",
+  "BANKER_GREET": "Welcome back, fucker. Keen to do some banking?",
+  "CHARMSLUG_REPEAT": "It's rare enough that someone enters my store, but even rarer to meet one so hideous!<page>Those ugly horns! That weak weapon. The air of rot! Ooooh. It's enough to make me puke.",
+  "CHARMSLUG_MEET_3B": "Mmm... What were we talking about? Oh yes, Charms! I'm not surprised an idiot like yourself isn't wearing any, actually. Charms are gorgeous, mystical, one-of-a-kind accessories with a spark of power woven into their cores. An antithesis to your hideous, primal, one-of-millions, empty self, one could say.<page>They can do wonders to fill the hole inside you. The literal one, that is. I don't think anything could fill the metaphorical hole inside you.",
+  "CHARMSLUG_BLESSING_1": "My dear. A blessing for you. With your excessive patronage and those bad looks, you've more than earned it, fucking simp.",
+  "CORNIFER_REFUSE": "Not interested, then? Yes, quite dumb. Exploring without a map, finding your own way through unknown caverns... I can't wait for you to get lost."
 }
