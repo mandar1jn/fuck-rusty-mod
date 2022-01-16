@@ -37,6 +37,10 @@
     <Reference Include="MMHOOK_Assembly-CSharp">
       <HintPath>..\vanilla\MMHOOK_Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\vanilla\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FuckRusty.cs" />
+    <Compile Include="LanguagePatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WavUtility.cs" />
   </ItemGroup>

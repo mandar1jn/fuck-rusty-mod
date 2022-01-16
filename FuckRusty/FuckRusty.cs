@@ -1,22 +1,24 @@
 ﻿using Modding;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 
 namespace FuckRusty
 {
-    public class FuckRusty : Mod
+	public class FuckRusty : Mod
     {
 		public static List<AudioClip> hitClips = new List<AudioClip>();
 		static Stream stream;
 		static Assembly assembly = Assembly.GetExecutingAssembly();
 		AudioSource audioPlayer;
 		System.Random random;
+		public static FuckRusty instance;
+
+		public FuckRusty() : base("FuckRusty")
+		{
+			instance = this;	
+		}
 
 		public static void LoadHitAudioFromStream(string path)
 		{
@@ -70,6 +72,8 @@ namespace FuckRusty
 			random = new System.Random();
 
 			ModHooks.AfterTakeDamageHook += PlaySound;
+
+			LanguagePatcher.Initialize();
 		}
 
 		private int PlaySound(int hazardType, int damageAmount)
