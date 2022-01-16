@@ -1,41 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BF7F511A-4E5E-4C24-89FE-943E6C8869DF}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FuckRusty</RootNamespace>
-    <AssemblyName>FuckRusty</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>portable</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<ProjectGuid>{A658D7A5-E9F4-4BE4-84EC-711FDA93F18C}</ProjectGuid>
+		<TargetFramework>net472</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<AssemblyTitle>FuckRusty</AssemblyTitle>
+		<Product>FuckRusty</Product>
+		<NeutralLanguage>en</NeutralLanguage>
+		<Description>Mod by mandar1jn and godfriend</Description>
+		<OutputPath>bin\$(Configuration)\</OutputPath>
+		<DebugSymbols>true</DebugSymbols>
+		<CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<EnableNETAnalyzers>false</EnableNETAnalyzers>
+	</PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="assets\**" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\vanilla\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="MMHOOK_Assembly-CSharp">
       <HintPath>..\vanilla\MMHOOK_Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>..\vanilla\netstandard.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -47,7 +36,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>..\vanilla\UnityEngine.dll</HintPath>
@@ -64,44 +52,6 @@
     <Compile Include="LanguagePatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WavUtility.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="assets\language.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="assets\oh cockass.wav" />
-    <EmbeddedResource Include="assets\okay that was bullshit.wav" />
-    <EmbeddedResource Include="assets\shit.wav" />
-    <EmbeddedResource Include="assets\what the fuck.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="assets\damnit.wav" />
-    <EmbeddedResource Include="assets\eat my ass.wav" />
-    <EmbeddedResource Include="assets\eat my shit.wav" />
-    <EmbeddedResource Include="assets\fucker.wav" />
-    <EmbeddedResource Include="assets\I bet you eat soup with a fork.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="assets\aaaah.wav" />
-    <EmbeddedResource Include="assets\aaah.wav" />
-    <EmbeddedResource Include="assets\aah.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="assets\fuck out of here.wav" />
-    <EmbeddedResource Include="assets\fuck this bullshit.wav" />
-    <EmbeddedResource Include="assets\fucking asshole.wav" />
-    <EmbeddedResource Include="assets\get the fuck out of my way.wav" />
-    <EmbeddedResource Include="assets\go fuck yourself are you kidding me.wav" />
-    <EmbeddedResource Include="assets\holy fuck 1.wav" />
-    <EmbeddedResource Include="assets\holy fuck 2.wav" />
-    <EmbeddedResource Include="assets\holy fuck.wav" />
-    <EmbeddedResource Include="assets\holy shit.wav" />
-    <EmbeddedResource Include="assets\jezus fucking hell.wav" />
-    <EmbeddedResource Include="assets\shit 1.wav" />
-    <EmbeddedResource Include="assets\spaghetti sauce.wav" />
-    <EmbeddedResource Include="assets\titsville.wav" />
-    <EmbeddedResource Include="assets\you are just fucked.wav" />
-    <EmbeddedResource Include="assets\you ass.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

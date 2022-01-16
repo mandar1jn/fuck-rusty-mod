@@ -9,7 +9,7 @@ namespace FuckRusty
 {
 	class LanguagePatcher
 	{
-		static Dictionary<string, string> translations = new Dictionary<string, string>();
+		static Dictionary<string, string> translations = new();
 		public static void Initialize()
 		{
 			Assembly a = Assembly.GetExecutingAssembly();

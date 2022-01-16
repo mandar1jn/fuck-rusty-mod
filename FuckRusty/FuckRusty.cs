@@ -8,9 +8,9 @@ namespace FuckRusty
 {
 	public class FuckRusty : Mod
     {
-		public static List<AudioClip> hitClips = new List<AudioClip>();
+		public static List<AudioClip> hitClips = new();
 		static Stream stream;
-		static Assembly assembly = Assembly.GetExecutingAssembly();
+		static readonly Assembly assembly = Assembly.GetExecutingAssembly();
 		AudioSource audioPlayer;
 		System.Random random;
 		public static FuckRusty instance;
