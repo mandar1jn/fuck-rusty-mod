@@ -24,5 +24,23 @@
   "ELDERBUG_DUNG": "Oh, that horrid smell! It's far worse than you usually bear on you. For the love of wyrm, get rid of that horrendous Charm!",
   "ELDERBUG_MINES_LIFT": "That noisy old lift, where does it go? Up to the old mines they carved into the peak, I suppose.<page>Have you been up there? Is it true that crystals grow everywhere you step?<page>I suppose you haven't, if you're whole and alive and in front of me, rather than impaled dead on a crystal up there.",
   "ELDERBUG_KINGS_PASS": "I saw you wandering around towards the cliffs earlier. I am genuinely surprised you didn't slip and fall off one of them.<page>Oh! How I would laugh for hours if I were to find your lifeless corpse, having slipped from a ledge and fallen to your death!<page>What's that? It seems to you I dislike you? Well, see, I don't really hate you, I just couldn't care less about you - that said, your death would be very entertaining.",
-  "ELDERBUG_CROSSROADS_INFECTED": "Ehhh...A sharp sickly smell has started to drift from the well beside town. I'd thought those depths ominous before, now they seem just dreadful.<page>You really did a number on those ruins, didn't you? That smell of yours is probably what kept you alive all this time." 
+  "ELDERBUG_CROSSROADS_INFECTED": "Ehhh...A sharp sickly smell has started to drift from the well beside town. I'd thought those depths ominous before, now they seem just dreadful.<page>You really did a number on those ruins, didn't you? That smell of yours is probably what kept you alive all this time.",
+  
+  "SHOP_DESC_BLUEHEALTHSMALL": "Have you ever drunk that bright blue liquid, 'lifeblood'? It's classified as hard drugs, but it makes you feel much healthier doesn't it?<br><br>This charm seeps lifeblood and will certainly feel as though it improves your constitution!",
+  "SHOP_DESC_LONGNAIL": "That nail you wield is pathetic! This charm, its also quite pathetic, yes?<br><br>But even the minor 15% increase to your nail length is an improvement for you, little rodent!",
+  "SHOP_DESC_NORECOIL": "I love the simple design on this little fellow! Very classy! Unlike you. It's made out of a nice, solid, heavy material too, not like your flimsy build.<br><br>Wear it and you'll be able to stay firmly in place when flailing your little toy around.",
+  "SHOP_DESC_SPELLDMGUP": "Are you a spellcaster, you little bastard? Ho ho! I'm only teasing. You're obviously not anything of skill.<br><br>If you ever learn any spells, as unlikely as that might be, you should buy this charm for yourself. I've heard it will make a spell much stronger! It'll only make up for your innate lack of power, of course.",
+  "SHOP_DESC_QUICKFOCUS": "The crystal set in the centre is lovely, isn't it? Exquisite, even! I've heard that crystals help you to focus, so if you want to have an attention span longer than your current ten seconds, you should take this beauty home!",
+  "SHOP_DESC_NOTCH_1_NE": "This is a special item for those who just don't manage with the notches they already have.<br><br>I'll sell it to you after you waste your time going after some more charms, or buy some of mine.<br><br>You only need ",
+  "SHOP_DESC_NOTCH_2_NE": "This is a special item for those who just don't manage with the notches they already have.<br><br>I'll sell it to you after you run around the kingdom getting charms.<br><br>You only need ",
+  "SHOP_DESC_NOTCH_3_NE": "This is a special item for those who just don't manage with the notches they already have.<br><br>Once you have, say, 18 charms - a bit less than half the charms you could hope to find - I'll sell it to you.<br><br>You only need ",
+  "SHOP_DESC_NOTCH_4_NE": "This is a special item for those who just don't manage with the notches they already have.<br><br>Oh? You want this one too? Hmph. 25 charms minimum requirement, I guess.<br><br>You only need ",
+  "CHARMS_REMAINING": "more, so get your ass out there and get those charms, fucko."
+  "SHOP_SALUBRA_BLESSING_NE": "This is a special reward for those who are huge enough simps to go turn over every rock in an entire kingdom to find FORTY FUCKING CHARMS just because I asked you to.<br><br>You only need ",
+  "SHOP_DESC_NOTCH_1": "You want to wear a lot of charms, don't you? Of course you do, greedy little fuck!<br><br>Buy this charm notch and you'll be able to use all your usual charms, PLUS a fucking compass. ",
+  "SHOP_DESC_NOTCH_2": "Still don't have enough notches? How dependent ARE you on these charms?<br><br>Pathetic. ",
+  "SHOP_DESC_NOTCH_3": "You just can't get enough of these, can you?<br><br>You're such a sad creature, I couldn't bear to look at you, if your horrid looks wouldn't have immunized me.",
+  "SHOP_DESC_NOTCH_4": "This is my last charm notch I have for sale, little thing.<br><br>I never expected you to actually go out and gather twenty five charms, but I guess you're desperate. ",
+  "SHOP_SALUBRA_BLESSING": "Fucking simp. Let's get this over with."
+  
 }
