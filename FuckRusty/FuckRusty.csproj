@@ -1,6 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<ProjectGuid>{A658D7A5-E9F4-4BE4-84EC-711FDA93F18C}</ProjectGuid>
+		<ProjectGuid>{BF7F511A-4E5E-4C24-89FE-943E6C8869DF}</ProjectGuid>
 		<TargetFramework>net472</TargetFramework>
 		<LangVersion>latest</LangVersion>
 		<AssemblyTitle>FuckRusty</AssemblyTitle>
