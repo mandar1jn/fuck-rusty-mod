@@ -26,8 +26,7 @@
     <Reference Include="netstandard">
       <HintPath>..\vanilla\netstandard.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Newtonsoft.Json">
       <HintPath>..\vanilla\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -48,10 +47,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FuckRusty.cs" />
-    <Compile Include="LanguagePatcher.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WavUtility.cs" />
+    <Folder Include="Properties\" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

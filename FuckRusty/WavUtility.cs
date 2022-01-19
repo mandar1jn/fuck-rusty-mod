@@ -34,11 +34,20 @@ namespace FuckRusty
 			return ToAudioClip(fileBytes);
 		}
 
-		public static AudioClip ToAudioClip(byte[] fileBytes, int offsetSamples = 0, string name = "wav")
+		public static AudioClip ToAudioClip(byte[] fileBytes, string name = "wav")
 		{
-			//string riff = Encoding.ASCII.GetString (fileBytes, 0, 4);
-			//string wave = Encoding.ASCII.GetString (fileBytes, 8, 4);
-			var subchunk1 = BitConverter.ToInt32(fileBytes, 16);
+            if (fileBytes is null)
+            {
+                throw new ArgumentNullException(nameof(fileBytes));
+            }
+
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentException($"'{nameof(name)}' cannot be null or empty.", nameof(name));
+            }
+            //string riff = Encoding.ASCII.GetString (fileBytes, 0, 4);
+            //string wave = Encoding.ASCII.GetString (fileBytes, 8, 4);
+            var subchunk1 = BitConverter.ToInt32(fileBytes, 16);
 			var audioFormat = BitConverter.ToUInt16(fileBytes, 20);
 
 			// NB: Only uncompressed PCM wav files are supported.
@@ -55,37 +64,23 @@ namespace FuckRusty
 
 			var headerOffset = 16 + 4 + subchunk1 + 4;
 			var subchunk2 = BitConverter.ToInt32(fileBytes, headerOffset);
-			//Debug.LogFormat ("riff={0} wave={1} subchunk1={2} format={3} channels={4} sampleRate={5} byteRate={6} blockAlign={7} bitDepth={8} headerOffset={9} subchunk2={10} filesize={11}", riff, wave, subchunk1, formatCode, channels, sampleRate, byteRate, blockAlign, bitDepth, headerOffset, subchunk2, fileBytes.Length);
-
-			float[] data;
-			switch (bitDepth)
-			{
-				case 8:
-					data = Convert8BitByteArrayToAudioClipData(fileBytes, headerOffset, subchunk2);
-					break;
-				case 16:
-					data = Convert16BitByteArrayToAudioClipData(fileBytes, headerOffset, subchunk2);
-					break;
-				case 24:
-					data = Convert24BitByteArrayToAudioClipData(fileBytes, headerOffset, subchunk2);
-					break;
-				case 32:
-					data = Convert32BitByteArrayToAudioClipData(fileBytes, headerOffset, subchunk2);
-					break;
-				default:
-					throw new Exception(bitDepth + " bit depth is not supported.");
-			}
-
-			var audioClip = AudioClip.Create(name, data.Length / channels, channels, sampleRate, false);
+            float[] data = bitDepth switch
+            {
+                8 => Convert8BitByteArrayToAudioClipData(fileBytes, headerOffset, subchunk2),
+                16 => Convert16BitByteArrayToAudioClipData(fileBytes, headerOffset, subchunk2),
+                24 => Convert24BitByteArrayToAudioClipData(fileBytes, headerOffset, subchunk2),
+                32 => Convert32BitByteArrayToAudioClipData(fileBytes, headerOffset, subchunk2),
+                _ => throw new Exception(bitDepth + " bit depth is not supported."),
+            };
+            var audioClip = AudioClip.Create(name, data.Length / channels, channels, sampleRate, false);
 			audioClip.SetData(data, 0);
 			return audioClip;
 		}
 
 		public static byte[] FromAudioClip(AudioClip audioClip)
 		{
-			string file;
-			return FromAudioClip(audioClip, out file, false);
-		}
+            return FromAudioClip(audioClip, out _, false);
+        }
 
 		public static byte[] FromAudioClip(AudioClip audioClip, out string filepath, bool saveAsFile = true,
 			string dirname = "recordings")
@@ -108,7 +103,7 @@ namespace FuckRusty
 			// file header (fmt)
 			WriteFileFormat(ref stream, audioClip.channels, audioClip.frequency, bitDepth);
 			// data chunks (data)
-			WriteFileData(ref stream, audioClip, bitDepth);
+			WriteFileData(ref stream, audioClip);
 
 			var bytes = stream.ToArray();
 
@@ -154,22 +149,7 @@ namespace FuckRusty
 			return bitDepth / 8;
 		}
 
-		private static int BlockSize(ushort bitDepth)
-		{
-			switch (bitDepth)
-			{
-				case 32:
-					return sizeof(int); // 32-bit -> 4 bytes (Int32)
-				case 16:
-					return sizeof(short); // 16-bit -> 2 bytes (Int16)
-				case 8:
-					return sizeof(sbyte); // 8-bit -> 1 byte (sbyte)
-				default:
-					throw new Exception(bitDepth + " bit depth is not supported.");
-			}
-		}
-
-		private static string FormatCode(ushort code)
+        private static string FormatCode(ushort code)
 		{
 			switch (code)
 			{
@@ -227,13 +207,11 @@ namespace FuckRusty
 			var data = new float[convertedSize];
 
 			var maxValue = short.MaxValue;
-
-			var offset = 0;
-			var i = 0;
+            var i = 0;
 			while (i < convertedSize)
 			{
-				offset = i * x + headerOffset;
-				data[i] = (float)BitConverter.ToInt16(source, offset) / maxValue;
+                int offset = i * x + headerOffset;
+                data[i] = (float)BitConverter.ToInt16(source, offset) / maxValue;
 				++i;
 			}
 
@@ -260,13 +238,11 @@ namespace FuckRusty
 
 			var
 				block = new byte[sizeof(int)]; // using a 4 byte block for copying 3 bytes, then copy bytes with 1 offset
-
-			var offset = 0;
-			var i = 0;
+            var i = 0;
 			while (i < convertedSize)
 			{
-				offset = i * x + headerOffset;
-				Buffer.BlockCopy(source, offset, block, 1, x);
+                int offset = i * x + headerOffset;
+                Buffer.BlockCopy(source, offset, block, 1, x);
 				data[i] = (float)BitConverter.ToInt32(block, 0) / maxValue;
 				++i;
 			}
@@ -291,13 +267,11 @@ namespace FuckRusty
 			var maxValue = int.MaxValue;
 
 			var data = new float[convertedSize];
-
-			var offset = 0;
-			var i = 0;
+            var i = 0;
 			while (i < convertedSize)
 			{
-				offset = i * x + headerOffset;
-				data[i] = (float)BitConverter.ToInt32(source, offset) / maxValue;
+                int offset = i * x + headerOffset;
+                data[i] = (float)BitConverter.ToInt32(source, offset) / maxValue;
 				++i;
 			}
 
@@ -366,9 +340,19 @@ namespace FuckRusty
 			return count;
 		}
 
-		private static int WriteFileData(ref MemoryStream stream, AudioClip audioClip, ushort bitDepth)
+		private static int WriteFileData(ref MemoryStream stream, AudioClip audioClip)
 		{
-			var count = 0;
+            if (stream is null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
+            if (audioClip is null)
+            {
+                throw new ArgumentNullException(nameof(audioClip));
+            }
+
+            var count = 0;
 			var total = 8;
 
 			// Copy float[] data from AudioClip
@@ -422,6 +406,8 @@ namespace FuckRusty
 			return bytes;
 		}
 
+		//disabling because it helps view what the type of the data is
+#pragma warning disable IDE0060
 		private static int WriteBytesToMemoryStream(ref MemoryStream stream, byte[] bytes, string tag = "")
 		{
 			var count = bytes.Length;
@@ -429,6 +415,7 @@ namespace FuckRusty
 			//Debug.LogFormat ("WAV:{0} wrote {1} bytes.", tag, count);
 			return count;
 		}
+#pragma warning restore IDE0060
 
 		#endregion
 	}
