@@ -1,14 +1,18 @@
 ﻿using Modding;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace FuckRusty
 {
 	public class FuckRusty : Mod
     {
 		public static List<AudioClip> hitClips = new();
+		public static Dictionary<string, Dictionary<string, GameObject>> enemies = new();
 		static Stream stream;
 		static readonly Assembly assembly = Assembly.GetExecutingAssembly();
 		AudioSource audioPlayer;
@@ -20,7 +24,15 @@ namespace FuckRusty
 			instance = this;	
 		}
 
-		public static void LoadHitAudioFromStream(string path)
+        public override List<(string, string)> GetPreloadNames()
+        {
+			return new List<(string, string)>()
+			{
+				("Crossroads_08", "Battle Scene/Wave 1/Spitter"),
+			};
+        }
+
+        public static void LoadHitAudioFromStream(string path)
 		{
 			
 			stream = assembly.GetManifestResourceStream(path);
@@ -61,8 +73,8 @@ namespace FuckRusty
 			stream.Dispose();
 		}
 
-		public override void Initialize()
-		{
+        public override void Initialize(Dictionary<string, Dictionary<string, GameObject>> preloadedObjects)
+        {
 			LoadHitAudio();
 			GameObject audioHolder = UnityEngine.Object.Instantiate(new GameObject());
 			audioHolder.AddComponent<AudioSource>();
@@ -74,9 +86,12 @@ namespace FuckRusty
 			ModHooks.AfterTakeDamageHook += PlaySound;
 
 			LanguagePatcher.Initialize();
+
+			On.HeroController.EnterScene += AspicFucker.OnSceneEnter;
+			enemies = preloadedObjects;
 		}
 
-		private int PlaySound(int hazardType, int damageAmount)
+        private int PlaySound(int hazardType, int damageAmount)
 		{
 			audioPlayer.clip = hitClips[random.Next(0, hitClips.Count)];
 			audioPlayer.Play();
