@@ -70,6 +70,8 @@ namespace FuckRusty
 			random = new System.Random();
 
 			ModHooks.AfterTakeDamageHook += PlaySound;
+			
+			On.PlayMakerFSM.Awake += FSMAwake;
 		}
 
 		private int PlaySound(int hazardType, int damageAmount)
@@ -77,6 +79,22 @@ namespace FuckRusty
 			audioPlayer.clip = hitClips[random.Next(0, hitClips.Count)];
 			audioPlayer.Play();
 			return damageAmount;
+		}
+		
+		private void FSMAwake(On.PlayMakerFSM.orig_Awake orig, PlayMakerFSM self)
+		{
+			orig(self);
+			
+			if (self.FsmName == "Conversation Control")
+			{
+			    if (self.gameObject.name.StartsWith("Relic Dealer")) {
+				self.GetAction<PlayerDataBoolTest>("Convo Choice", 2).isFalse = FsmEvent.GetFsmEvent("DUNG");
+			    }
+			}
+			else if (self.FsmName == "Shop Region")
+			{
+			    self.GetAction<PlayerDataBoolTest>("Check Relics", 0).isFalse = FsmEvent.GetFsmEvent("DUNG");
+			}
 		}
 	}
 }
