@@ -1,15 +1,12 @@
 ﻿using Modding;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace FuckRusty
 {
-	public class FuckRusty : Mod
+    public class FuckRusty : Mod
     {
 		public static List<AudioClip> hitClips = new();
 		public static Dictionary<string, Dictionary<string, GameObject>> enemies = new();
